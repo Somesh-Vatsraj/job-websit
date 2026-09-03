@@ -1,0 +1,138 @@
+/* frontend/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --primary: #8b5cf6;
+        --primary-secondary: #a855f7;
+        --primary-light: #f3e8ff;
+        --primary-very-light: #faf5ff;
+        --white: #ffffff;
+        --dark: #18181b;
+        --muted: #71717a;
+        --border: #e4e4e7;
+        --radius: 1rem;
+    }
+
+    * {
+        @apply box-border;
+    }
+
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply antialiased bg-[#faf5ff] text-[#18181b] transition-colors duration-300;
+    }
+
+    .dark body {
+        @apply bg-[#12121a] text-[#e4e4e7];
+    }
+
+    ::selection {
+        @apply bg-[#8b5cf6] text-white;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-[#f3e8ff] dark:bg-[#1a1a2e];
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-[#8b5cf6] rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-[#a855f7];
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-white dark:bg-[#1e1e2f] rounded-2xl shadow-sm border border-[#e4e4e7] dark:border-[#2a2a3e] transition-all duration-300 hover:shadow-md hover:shadow-[#8b5cf6]/5;
+    }
+
+    .card-glass {
+        @apply bg-white/80 dark:bg-[#1e1e2f]/80 backdrop-blur-sm rounded-2xl border border-[#e4e4e7] dark:border-[#2a2a3e];
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8b5cf6] disabled:opacity-60 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-[#8b5cf6] text-white hover:bg-[#7c3aed] shadow-sm hover:shadow-md hover:shadow-[#8b5cf6]/25;
+    }
+
+    .btn-secondary {
+        @apply bg-[#f3e8ff] text-[#7c3aed] hover:bg-[#e8d5ff] dark:bg-[#2a1a4a] dark:text-[#c4a0ff] dark:hover:bg-[#3a2a5a];
+    }
+
+    .btn-outline {
+        @apply border border-[#e4e4e7] dark:border-[#2a2a3e] bg-transparent hover:bg-[#f3e8ff] dark:hover:bg-[#2a1a4a] text-[#18181b] dark:text-[#e4e4e7];
+    }
+
+    .btn-danger {
+        @apply bg-red-500 text-white hover:bg-red-600 shadow-sm hover:shadow-red-500/25;
+    }
+
+    .btn-success {
+        @apply bg-green-500 text-white hover:bg-green-600 shadow-sm hover:shadow-green-500/25;
+    }
+
+    .input {
+        @apply w-full px-4 py-2.5 rounded-xl border border-[#e4e4e7] dark:border-[#2a2a3e] bg-white dark:bg-[#1a1a2e] text-[#18181b] dark:text-[#e4e4e7] placeholder:text-[#71717a] focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/40 focus:border-[#8b5cf6] transition-all duration-200;
+    }
+
+    .label {
+        @apply block text-sm font-medium text-[#18181b] dark:text-[#e4e4e7] mb-1.5;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-full;
+    }
+
+    .badge-purple {
+        @apply bg-[#f3e8ff] text-[#7c3aed] dark:bg-[#2a1a4a] dark:text-[#c4a0ff];
+    }
+
+    .badge-green {
+        @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+    }
+
+    .badge-blue {
+        @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+    }
+
+    .badge-orange {
+        @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400;
+    }
+
+    .badge-red {
+        @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+    }
+
+    .badge-gray {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400;
+    }
+
+    .badge-gold {
+        @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+    }
+
+    .skeleton {
+        @apply animate-pulse bg-[#e4e4e7] dark:bg-[#2a2a3e] rounded-xl;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+}
