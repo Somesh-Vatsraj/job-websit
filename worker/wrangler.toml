@@ -1,0 +1,16 @@
+# worker/wrangler.toml
+name = "wfh-platform-api"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wfh-platform-db"
+database_id = "3c29792f-34af-4f1a-96d1-2e4e3a1350c9"
+
+[vars]
+# Set these via `wrangler secret put` in production
+# AUTH_SECRET = "your-super-secret-auth-key"
+
+[env.production]
+vars = { }
