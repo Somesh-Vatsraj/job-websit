@@ -1,16 +1,21 @@
-# worker/wrangler.toml
 name = "wfh-platform-api"
 main = "src/index.js"
 compatibility_date = "2024-12-01"
 
+# D1 Database binding
 [[d1_databases]]
 binding = "DB"
 database_name = "wfh-platform-db"
 database_id = "3c29792f-34af-4f1a-96d1-2e4e3a1350c9"
 
+# Static assets configuration – serve the built React app
+[assets]
+directory = "../frontend/dist"          # path from worker/ to frontend/dist
+binding = "ASSETS"                      # optional, default is "ASSETS"
+run_worker_first = true                 # critical: let Worker handle /api/* first
+
 [vars]
-# Set these via `wrangler secret put` in production
-# AUTH_SECRET = "your-super-secret-auth-key"
+# Set AUTH_SECRET via `wrangler secret put` in production
 
 [env.production]
 vars = { }
